@@ -4,8 +4,9 @@
 -}
 {-# LANGUAGE ScopedTypeVariables #-}
 
-import Data.List (sort)
+import Data.List (sort, sortOn)
 import Data.List.Split (splitOn)
+import Data.Ord (Down (Down))
 
 main :: IO ()
 main = do
@@ -17,7 +18,7 @@ solve :: String -> Int
 solve = maximum . caloriesPerElf
 
 solve2 :: String -> Int
-solve2 = sum . take 3 . caloriesPerElf
+solve2 = sum . take 3 . sortOn Down . caloriesPerElf
 
 caloriesPerElf :: String -> [Int]
 caloriesPerElf = fmap sum . (fmap . fmap) read . splitOn [""] . lines
