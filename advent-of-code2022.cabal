@@ -1,0 +1,43 @@
+cabal-version:      2.4
+name:               aoc2022
+version:            0.1.0.0
+
+-- A short (one-line) description of the package.
+-- synopsis:
+
+-- A longer description of the package.
+-- description:
+
+-- A URL where users can report bugs.
+-- bug-reports:
+
+-- The license under which the package is released.
+-- license:
+author:             Martin Sosic
+maintainer:         sosic.martin@gmail.com
+
+data-dir: data
+
+-- A copyright notice.
+-- copyright:
+-- category:
+extra-source-files:
+    CHANGELOG.md
+    README.md
+
+executable advent-of-code2022
+    main-is:          Main.hs
+
+    -- Modules included in this executable, other than Main.
+    other-modules:
+      Day7
+      Paths_aoc2022
+
+    -- LANGUAGE extensions used by modules in this package.
+    -- other-extensions:
+    build-depends:
+      base ^>=4.14.3.0,
+      split ^>=0.2.3.5,
+      mtl ^>= 2.2.2
+    hs-source-dirs:   app
+    default-language: Haskell2010
