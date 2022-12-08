@@ -1,14 +1,19 @@
 module Day7 where
 
 import qualified Control.Monad.State.Lazy as S
-import Data.List (delete, find, isPrefixOf)
+import Data.List (delete, find, isPrefixOf, sort)
 import Data.List.Split (splitOn)
 import Paths_aoc2022 (getDataFileName)
 
 day7 :: IO ()
 day7 = do
   inputLines <- lines <$> (getDataFileName "input7.txt" >>= readFile)
-  print $ sum $ filter (<= 100000) $ map totalSize $ allDirs $ processCommands $ parseInput inputLines
+  let rootDir = processCommands $ parseInput inputLines
+  let dirSizes = map totalSize $ allDirs rootDir
+  print $ sum $ filter (<= 100000) $ dirSizes -- 1749646
+  let unusedSpace = 70000000 - totalSize rootDir
+  let spaceToFree = max 0 $ 30000000 - unusedSpace
+  print $ find (>= spaceToFree) $ sort dirSizes -- 1498966
 
 ---------- FSItem (Filesystem description) ----------
 
