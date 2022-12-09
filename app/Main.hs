@@ -1,8 +1,8 @@
 module Main where
 
-import Day7
+import Day8b
 
 main :: IO ()
 main = do
   putStrLn "Hello, Haskell!"
-  day7
+  day8b
